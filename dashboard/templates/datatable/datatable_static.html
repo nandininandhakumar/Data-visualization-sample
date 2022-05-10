@@ -2,80 +2,30 @@
 
 {% block content %}
 <h1>Data Table</h1>
-
-{% for k,v in out %}
-    <p>{{ k }}: {{ v.data }}</p>
-{% endfor %}
-
-    <table id="myStaticDatatable">
-        <thead>
-        <tr>
-            
+<table id="myStaticDatatable">
+    <thead>
+        <tr>          
             <th>Country Name</th>
-            <th>Population</th>
-            
+            <th>Population</th>           
+        </tr>       
+    </thead>
+    <tbody>
+        {% for country, population in data %}
+        <tr>
+            <td>{{ country }} </td>
+            <td>{{ population }}</td>
         </tr>
-        </thead>
-        <tbody>
-            <!-- {% for label in labels %}
-               
-                    <tr>
-                        <td> {{ label }} {{ datas }}</td> 
-                        
-                    </tr>
-                  
-            {% endfor %} -->
+        {% endfor %}
+    </tbody>
+</table>
 
-
-
-            <!-- {% for key, value in data1.items %}
-               
-                    <tr>
-                        <td> {{ key }} {{ value }}</td> 
-                        
-                    </tr>
-                  
-            {% endfor %} -->
-
-        <!-- {% for labels,data in data1 %}
-            <tr>
-                <td>{{ data }}</td>
-                <td>{{ data.data }}</td>
-                
-            </tr>
-        {% endfor %} -->
-
-        
-        <!-- {% for key,values in data1 %}
-            <tr>
-                <td>{{key}}</td>
-                <td>{{values}}</td>
-            </tr>
-        {% endfor %} -->
-        
-        </tbody>
-    </table>
 {% endblock %}
 
-
 {% block extra_js %}
-    <script>
+<script>
         $(document).ready(function () {
             $('#myStaticDatatable').DataTable();
             
         });
-
-        // $(document).ready(function () {
-        //     $('#myStaticDatatable').DataTable({
-        //         'columns':[
-        //             {'data1' : 'data1.data'},
-        //             {'data1' : 'data1.labels'},
-
-        //         ]
-        //     });
-            
-        // });
-       
-           
-    </script>
+</script>
 {% endblock %}
